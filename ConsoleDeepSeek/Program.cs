@@ -38,6 +38,7 @@ namespace ConsoleDeepSeek
 
             // Get main argument values
             string modelPath = parseResult.GetValue<string>("model_path")!;
+           // string modelPath = @"C:\deeplearning\huggingface\models\deepseek-r1-distill-qwen-1.5B\gpu\gpu-int4-rtn-block-32";
             string executionProvider = parseResult.GetValue<string>("execution_provider")!;
             string epPath = parseResult.GetValue<string>("ep_path")!;
             string systemPrompt = parseResult.GetValue<string>("system_prompt")!;
