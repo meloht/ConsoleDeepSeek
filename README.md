@@ -1,4 +1,4 @@
-## Run generative AI models with ONNX Runtime C# Demo
+## Run generative AI models with ONNX Runtime C# demo
 
 ### Download the model directly using the Hugging Face CLI
 ```bash
