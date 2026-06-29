@@ -185,6 +185,7 @@ namespace ConsoleDeepSeek.Utilities
                 add_generation_prompt: add_generation_prompt,
                 template_str: template_str
             );
+            Console.WriteLine(prompt);
             return prompt;
         }
 

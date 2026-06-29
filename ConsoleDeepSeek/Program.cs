@@ -1,6 +1,7 @@
 ﻿using ConsoleDeepSeek.Utilities;
 using Microsoft.ML.OnnxRuntimeGenAI;
 using System.CommandLine;
+using System.Text;
 using System.Text.Json;
 
 namespace ConsoleDeepSeek
@@ -19,6 +20,8 @@ namespace ConsoleDeepSeek
         static void Main(string[] args)
         {
             using OgaHandle ogaHandle = new OgaHandle();
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.InputEncoding = Encoding.UTF8;
             // Obtain and parse command-line arguments
             RootCommand parser = GetArgs();
             ParseResult parseResult = parser.Parse(args);
@@ -38,7 +41,7 @@ namespace ConsoleDeepSeek
 
             // Get main argument values
             string modelPath = parseResult.GetValue<string>("model_path")!;
-           // string modelPath = @"C:\deeplearning\huggingface\models\deepseek-r1-distill-qwen-1.5B\gpu\gpu-int4-rtn-block-32";
+            //string modelPath = @"C:\deeplearning\huggingface\models\deepseek-r1-distill-qwen-1.5B\gpu\gpu-int4-rtn-block-32";
             string executionProvider = parseResult.GetValue<string>("execution_provider")!;
             string epPath = parseResult.GetValue<string>("ep_path")!;
             string systemPrompt = parseResult.GetValue<string>("system_prompt")!;
@@ -156,7 +159,8 @@ namespace ConsoleDeepSeek
                 string messages = $@"[{{""role"":""system"",""content"":""{systemPrompt}""}},{{""role"":""user"",""content"":""{user_prompt}""}}]";
                 string prompt = Common.ApplyChatTemplate(modelPath, tokenizer, messages, add_generation_prompt: true);
                 var sequences = tokenizer.Encode(prompt);
-                if (verbose) Console.WriteLine($"Prompt encoded: {prompt}");
+                Console.WriteLine($"Prompt encoded: {prompt}");
+                //if (verbose) Console.WriteLine($"Prompt encoded: {prompt}");
 
                 // Set search options for generator params
                 using GeneratorParams generatorParams = new GeneratorParams(model);
