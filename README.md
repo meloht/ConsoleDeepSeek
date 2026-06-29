@@ -1,5 +1,8 @@
 ## Run generative AI models with ONNX Runtime C# demo
 
+<img width="1013" height="773" alt="image" src="https://github.com/user-attachments/assets/9ea8ad61-397c-490c-967d-986009ef53ec" />
+
+
 ### Download the model directly using the Hugging Face CLI
 ```bash
 
